@@ -1,0 +1,5 @@
+2026-01-10 ERROR connection refused to database
+2026-01-10 ERROR timeout contacting service
+2026-01-10 HTTP 500 internal server error
+2026-01-10 ERROR connection refused to database
+2026-01-10 timeout contacting service
