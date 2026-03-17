@@ -175,6 +175,20 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/tiagomartimiano/sre-ai-lab.git
+cd sre-ai-lab
+
+Set up the environment:
+
+./setup.sh
+source .venv/bin/activate
+
+Run the first lab:
+
+make run-log-analyzer
+
+Run the RCA example:
+
+make run-rca
 
 Navigate to the first lab:
 
