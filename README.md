@@ -2,23 +2,12 @@
 
 This repository explores how **Artificial Intelligence can enhance Site Reliability Engineering (SRE) and DevOps practices**.
 
-The goal of this project is to demonstrate **practical implementations of AI applied to reliability engineering problems**, including:
+The goal is to demonstrate **practical implementations of AI applied to reliability engineering problems**, combining:
 
-- Incident detection
-- Intelligent observability
-- Root cause analysis
-- Predictive scaling
-- Log analysis
-- Automated remediation
-- FinOps optimization
-
-Each case study includes:
-
+- real use cases
+- executable labs
 - architecture design
 - engineering concepts
-- implementation examples
-- executable experiments
-- observability insights
 
 ---
 
@@ -26,274 +15,244 @@ Each case study includes:
 
 Modern distributed systems generate massive volumes of telemetry data:
 
-- logs
-- metrics
-- traces
-- alerts
-- deployment events
+- logs  
+- metrics  
+- traces  
+- alerts  
+- deployment events  
 
-Traditional monitoring tools typically rely on **threshold-based alerts**, which often leads to:
+Traditional monitoring tools rely on **static thresholds**, which often lead to:
 
-- delayed incident detection
-- alert fatigue
-- slow root cause analysis
-- fragmented operational visibility
+- delayed incident detection  
+- alert fatigue  
+- slow root cause analysis  
+- fragmented observability  
 
 AI can help SRE teams:
 
-- detect anomalies earlier
-- correlate signals across systems
-- accelerate incident investigation
-- automate incident remediation
-- improve system reliability
+- detect anomalies earlier  
+- correlate signals across systems  
+- accelerate incident investigation  
+- automate operational insights  
+- improve system reliability  
 
 ---
 
 # Architecture Vision
 
-The core idea of this project is an **AI-assisted observability platform** that adds an intelligence layer on top of traditional monitoring systems.
+The core idea of this project is an **AI-assisted observability platform**.
 
+```text
 Applications / Services
-↓
+        ↓
 Telemetry Collection
 (Metrics / Logs / Traces / Events)
-↓
+        ↓
 Observability Platform
 (Prometheus / Grafana / Dynatrace / OpenTelemetry)
-↓
+        ↓
 AI Processing Layer
-↓
+        ↓
 Anomaly Detection / Correlation / RCA
-↓
+        ↓
 SRE Decision Support
 
+This architecture aims to augment human decision-making during incidents.
 
-The AI layer helps engineers interpret telemetry data and accelerate incident response workflows.
-
----
-
-# Project Structure
-
-
+Project Structure
 sre-ai-lab
 │
 ├── docs
-│ ├── architectures
-│ │ └── ai-observability-platform.md
-│ │
-│ └── sre-concepts
-│ └── ai-assisted-incident-response.md
+│   ├── architectures
+│   │   └── ai-observability-platform.md
+│   │
+│   └── sre-concepts
+│       └── ai-assisted-incident-response.md
 │
 ├── labs
-│ ├── 01-ai-log-analyzer
-│ │ ├── analyzer.py
-│ │ ├── sample_logs.txt
-│ │ └── README.md
-│ │
-│ ├── 02-metric-anomaly-detection
-│ └── 03-predictive-capacity
+│   ├── 01-ai-log-analyzer
+│   └── 02-metric-anomaly-detection
 │
 ├── examples
-│ └── ai-root-cause-analysis
-│ ├── rca_engine.py
-│ ├── sample_incident.json
-│ └── README.md
+│   └── ai-root-cause-analysis
 │
 ├── diagrams
 │
+├── .github/workflows
 ├── LICENSE
 ├── CONTRIBUTING.md
+├── requirements.txt
 └── README.md
+Technologies Used
+Infrastructure
 
+Kubernetes
 
-### docs
+Terraform
 
-Engineering documentation explaining architecture and SRE concepts.
+Docker
 
-### labs
+Observability
 
-Hands-on experiments demonstrating AI techniques applied to SRE problems.
+Prometheus
 
-### examples
+Grafana
 
-Practical examples simulating real-world reliability scenarios.
+Dynatrace
 
-### diagrams
+OpenTelemetry
 
-Architecture and workflow diagrams.
+AI / Data
 
----
+Python
 
-# Technologies Used
+Scikit-learn
 
-## Infrastructure
+Pandas
 
-- Kubernetes
-- Terraform
-- Docker
+NumPy
 
-## Observability
+Current Status
+Implemented
 
-- Prometheus
-- Grafana
-- Dynatrace
-- OpenTelemetry
+AI Log Analyzer (log classification + root cause hint)
 
-## AI / Data
+Metric Anomaly Detection (Isolation Forest)
 
-- Python
-- Scikit-learn
-- Pandas
-- NumPy
+AI Observability Architecture documentation
 
----
+In Progress
 
-# Current Status
+AI Root Cause Analysis (scoring improvements and integration)
 
-### Implemented
+Planned
 
-- AI Log Analyzer (basic log pattern classification)
-- AI Observability Architecture documentation
+Predictive capacity planning
 
-### In Progress
+AI-assisted incident response workflows
 
-- AI Root Cause Analysis example
+alert correlation
 
-### Planned
+automated remediation
 
-- Metric anomaly detection lab
-- Predictive capacity planning
-- AI-assisted incident response workflows
-- intelligent alert correlation
-- automated remediation experiments
-
----
-
-# Getting Started
-
-Clone the repository:
-
-```bash
+Getting Started
+1. Clone the repository
 git clone https://github.com/tiagomartimiano/sre-ai-lab.git
 cd sre-ai-lab
-
-Set up the environment:
-
+2. Setup environment
 ./setup.sh
 source .venv/bin/activate
-
-Run the first lab:
-
+3. Run AI Log Analyzer
 make run-log-analyzer
 
-Run the RCA example:
+or manually:
 
+cd labs/01-ai-log-analyzer
+python3 analyzer.py
+4. Run Metric Anomaly Detection
+make run-metric-anomaly-detection
+
+or:
+
+cd labs/02-metric-anomaly-detection
+python3 detect_anomalies.py
+5. Run Root Cause Analysis Example
 make run-rca
 
-Navigate to the first lab:
+or:
 
-cd sre-ai-lab/labs/01-ai-log-analyzer
-
-Run the log analyzer:
-
-python3 analyzer.py
-
-Example output:
-
-Detected issues:
-
-database_issue: 2 occurrences
-timeout_issue: 2 occurrences
-http_error: 1 occurrences
+cd examples/ai-root-cause-analysis
+python3 rca_engine.py
 Case Studies
-AI Log Analyzer
+1. AI Log Analyzer
 
-Automatically analyze logs and detect patterns that may indicate system failures.
+Detects recurring failure patterns in logs.
 
 Capabilities:
 
-classify error patterns
+classify log errors
 
-detect recurring issues
+detect repeated issues
 
-summarize operational signals
+infer possible root causes
 
-Location:
+📁 Location:
 
 labs/01-ai-log-analyzer
-Metric Anomaly Detection
+2. Metric Anomaly Detection
 
-Detect abnormal patterns in telemetry metrics such as:
+Uses machine learning (Isolation Forest) to detect abnormal behavior in telemetry.
 
-CPU utilization
+Signals analyzed:
 
-request latency
+CPU usage
+
+latency
 
 error rate
 
-traffic spikes
+request volume
 
-Location:
+📁 Location:
 
 labs/02-metric-anomaly-detection
-Predictive Capacity Planning
-
-Use historical telemetry data to forecast infrastructure saturation and potential incidents.
-
-Location:
-
-labs/03-predictive-capacity
 Examples
 AI Root Cause Analysis
 
-Demonstrates how telemetry signals can be correlated to generate root cause hypotheses for incidents.
+Simulates how incident signals can be correlated to rank possible causes.
 
-Signals analyzed may include:
+Signals considered:
 
 latency spikes
 
-error rate increases
+HTTP errors
 
 pod restarts
 
 deployment events
 
-Location:
+📁 Location:
 
 examples/ai-root-cause-analysis
+Engineering Focus
+
+This project explores key SRE questions:
+
+Can AI reduce MTTR?
+
+Can anomaly detection reduce alert fatigue?
+
+Can telemetry correlation improve incident triage?
+
+How far can automation go without removing human control?
+
 Future Experiments
 
-Planned research directions for this repository include:
-
-AI-assisted incident response
+predictive incident detection
 
 topology-aware root cause analysis
-
-predictive incident detection
 
 automated remediation with guardrails
 
 LLM-assisted incident summaries
 
-telemetry correlation pipelines
+AI incident copilots
 
 Contributing
 
 Contributions are welcome.
 
-Possible areas of contribution include:
+You can contribute with:
 
 new AI experiments for SRE
 
-improvements to anomaly detection models
+improvements in anomaly detection
 
-additional observability integrations
+RCA enhancements
 
 documentation improvements
 
-reproducible incident analysis examples
-
-Please read CONTRIBUTING.md for guidelines.
+See CONTRIBUTING.md for guidelines.
 
 License
 
