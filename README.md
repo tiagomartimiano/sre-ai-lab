@@ -2,10 +2,10 @@
 
 This repository explores how **Artificial Intelligence can enhance Site Reliability Engineering (SRE) and DevOps practices**.
 
-The goal is to demonstrate **practical implementations of AI applied to reliability engineering problems**, combining:
+The goal is to demonstrate **practical implementations of AI applied to reliability engineering**, combining:
 
-- real use cases
 - executable labs
+- real-world inspired examples
 - architecture design
 - engineering concepts
 
@@ -13,7 +13,7 @@ The goal is to demonstrate **practical implementations of AI applied to reliabil
 
 # Why AI for SRE?
 
-Modern distributed systems generate massive volumes of telemetry data:
+Modern distributed systems generate massive volumes of telemetry:
 
 - logs  
 - metrics  
@@ -21,26 +21,26 @@ Modern distributed systems generate massive volumes of telemetry data:
 - alerts  
 - deployment events  
 
-Traditional monitoring tools rely on **static thresholds**, which often lead to:
+Traditional monitoring relies on **static thresholds**, which often results in:
 
 - delayed incident detection  
 - alert fatigue  
 - slow root cause analysis  
-- fragmented observability  
+- fragmented visibility  
 
 AI can help SRE teams:
 
 - detect anomalies earlier  
 - correlate signals across systems  
 - accelerate incident investigation  
-- automate operational insights  
-- improve system reliability  
+- reduce operational noise  
+- improve reliability  
 
 ---
 
 # Architecture Vision
 
-The core idea of this project is an **AI-assisted observability platform**.
+The project is based on an **AI-assisted observability architecture**:
 
 ```text
 Applications / Services
@@ -57,9 +57,8 @@ Anomaly Detection / Correlation / RCA
         ↓
 SRE Decision Support
 
-This architecture aims to augment human decision-making during incidents.
-
 Project Structure
+
 sre-ai-lab
 │
 ├── docs
@@ -70,19 +69,29 @@ sre-ai-lab
 │       └── ai-assisted-incident-response.md
 │
 ├── labs
-│   ├── 01-ai-log-analyzer
-│   └── 02-metric-anomaly-detection
+│   ├── ai-log-analyzer
+│   │   ├── analyzer.py
+│   │   ├── sample_logs.txt
+│   │   └── requirements.txt
+│   │
+│   └── anomaly-detection
+│       ├── detect_anomalies.py
+│       ├── sample_metrics.csv
+│       └── requirements.txt
 │
 ├── examples
 │   └── ai-root-cause-analysis
+│       ├── rca_engine.py
+│       ├── sample_incident.json
+│       └── README.md
 │
 ├── diagrams
-│
 ├── .github/workflows
 ├── LICENSE
 ├── CONTRIBUTING.md
 ├── requirements.txt
 └── README.md
+
 Technologies Used
 Infrastructure
 
@@ -123,13 +132,13 @@ AI Observability Architecture documentation
 
 In Progress
 
-AI Root Cause Analysis (scoring improvements and integration)
+AI Root Cause Analysis improvements
 
 Planned
 
 Predictive capacity planning
 
-AI-assisted incident response workflows
+AI-assisted incident response
 
 alert correlation
 
@@ -140,31 +149,20 @@ Getting Started
 git clone https://github.com/tiagomartimiano/sre-ai-lab.git
 cd sre-ai-lab
 2. Setup environment
-./setup.sh
+python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
 3. Run AI Log Analyzer
-make run-log-analyzer
-
-or manually:
-
-cd labs/01-ai-log-analyzer
+cd labs/ai-log-analyzer
 python3 analyzer.py
 4. Run Metric Anomaly Detection
-make run-metric-anomaly-detection
-
-or:
-
-cd labs/02-metric-anomaly-detection
+cd labs/anomaly-detection
 python3 detect_anomalies.py
 5. Run Root Cause Analysis Example
-make run-rca
-
-or:
-
 cd examples/ai-root-cause-analysis
 python3 rca_engine.py
 Case Studies
-1. AI Log Analyzer
+AI Log Analyzer
 
 Detects recurring failure patterns in logs.
 
@@ -178,10 +176,10 @@ infer possible root causes
 
 📁 Location:
 
-labs/01-ai-log-analyzer
-2. Metric Anomaly Detection
+labs/ai-log-analyzer
+Metric Anomaly Detection
 
-Uses machine learning (Isolation Forest) to detect abnormal behavior in telemetry.
+Applies machine learning (Isolation Forest) to detect abnormal patterns in telemetry.
 
 Signals analyzed:
 
@@ -195,11 +193,11 @@ request volume
 
 📁 Location:
 
-labs/02-metric-anomaly-detection
+labs/anomaly-detection
 Examples
 AI Root Cause Analysis
 
-Simulates how incident signals can be correlated to rank possible causes.
+Correlates incident signals to generate ranked root cause hypotheses.
 
 Signals considered:
 
@@ -216,7 +214,7 @@ deployment events
 examples/ai-root-cause-analysis
 Engineering Focus
 
-This project explores key SRE questions:
+This repository explores key SRE questions:
 
 Can AI reduce MTTR?
 
@@ -246,13 +244,13 @@ You can contribute with:
 
 new AI experiments for SRE
 
-improvements in anomaly detection
+anomaly detection improvements
 
 RCA enhancements
 
 documentation improvements
 
-See CONTRIBUTING.md for guidelines.
+See CONTRIBUTING.md for details.
 
 License
 
