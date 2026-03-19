@@ -53,8 +53,14 @@ incident timeline reconstruction
 postmortem-style summary generation
 
 ## `Makefile`
-Adicione:
 
 ```makefile
 run-incident-pipeline:
 	cd examples/ai-incident-pipeline && python3 incident_pipeline.py
+
+## Action Recommendation
+
+After generating the incident summary, run:
+
+```bash
+python3 incident_recommender.py
