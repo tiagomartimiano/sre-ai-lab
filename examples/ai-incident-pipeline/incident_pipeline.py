@@ -6,8 +6,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parent.parent
 
-LOG_ANALYZER_DIR = PROJECT_ROOT / "labs" / "01-ai-log-analyzer"
-METRIC_DETECTION_DIR = PROJECT_ROOT / "labs" / "02-metric-anomaly-detection"
+LOG_ANALYZER_DIR = PROJECT_ROOT / "labs" / "ai-log-analyzer"
+METRIC_DETECTION_DIR = PROJECT_ROOT / "labs" / "anomaly-detection"
 RCA_DIR = PROJECT_ROOT / "examples" / "ai-root-cause-analysis"
 
 LOG_FILE = LOG_ANALYZER_DIR / "sample_logs.txt"
@@ -23,6 +23,10 @@ def run_json_command(command: list[str], cwd: Path) -> dict:
         text=True,
         check=True,
     )
+
+    if not result.stdout.strip():
+        raise RuntimeError(f"Command returned empty output: {' '.join(command)}")
+
     return json.loads(result.stdout)
 
 
@@ -57,6 +61,7 @@ def build_incident_summary(log_result: dict, metric_result: dict, rca_result: di
             "metric_analysis": {
                 "anomaly_count": metric_result.get("anomaly_count", 0),
                 "anomaly_timestamps": metric_result.get("anomaly_timestamps", []),
+                "anomaly_samples": metric_result.get("anomaly_samples", []),
             },
             "root_cause_analysis": {
                 "top_hypothesis": rca_result.get("top_hypothesis"),
@@ -67,23 +72,35 @@ def build_incident_summary(log_result: dict, metric_result: dict, rca_result: di
 
 
 def print_human_readable(summary: dict) -> None:
-    data = summary["incident_summary"]
+    incident = summary["incident_summary"]
 
     print("\nAI Incident Pipeline Result\n")
 
     print("Log Analysis")
-    print(f"  Summary: {data['log_analysis']['summary']}")
-    print(f"  Possible root cause: {data['log_analysis']['possible_root_cause']}")
+    print(f"  Summary: {incident['log_analysis']['summary']}")
+    print(f"  Possible root cause: {incident['log_analysis']['possible_root_cause']}")
 
     print("\nMetric Analysis")
-    print(f"  Anomaly count: {data['metric_analysis']['anomaly_count']}")
-    print(f"  Anomaly timestamps: {data['metric_analysis']['anomaly_timestamps']}")
+    print(f"  Anomaly count: {incident['metric_analysis']['anomaly_count']}")
+    print(f"  Anomaly timestamps: {incident['metric_analysis']['anomaly_timestamps']}")
 
     print("\nRoot Cause Analysis")
-    print(f"  Top hypothesis: {data['root_cause_analysis']['top_hypothesis']}")
+    print(f"  Top hypothesis: {incident['root_cause_analysis']['top_hypothesis']}")
     print("  Ranked hypotheses:")
-    for item in data["root_cause_analysis"]["ranked_hypotheses"]:
+    for item in incident["root_cause_analysis"]["ranked_hypotheses"]:
         print(f"    - {item['hypothesis']}: {item['score']}")
+
+
+def save_output(summary: dict) -> Path:
+    output_dir = BASE_DIR / "output"
+    output_dir.mkdir(exist_ok=True)
+
+    output_file = output_dir / "incident_summary.json"
+    output_file.write_text(
+        json.dumps(summary, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    return output_file
 
 
 def main() -> None:
@@ -94,12 +111,8 @@ def main() -> None:
     summary = build_incident_summary(log_result, metric_result, rca_result)
     print_human_readable(summary)
 
-    output_dir = BASE_DIR / "output"
-    output_dir.mkdir(exist_ok=True)
-    output_path = output_dir / "incident_summary.json"
-    output_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
-
-    print(f"\nStructured output saved to: {output_path}")
+    output_file = save_output(summary)
+    print(f"\nStructured output saved to: {output_file}")
 
 
 if __name__ == "__main__":

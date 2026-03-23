@@ -56,9 +56,7 @@ AI Processing Layer
 Anomaly Detection / Correlation / RCA
         ↓
 SRE Decision Support
-
 Project Structure
-
 sre-ai-lab
 │
 ├── docs
@@ -91,59 +89,33 @@ sre-ai-lab
 ├── CONTRIBUTING.md
 ├── requirements.txt
 └── README.md
-
 Technologies Used
 Infrastructure
-
 Kubernetes
-
 Terraform
-
 Docker
-
 Observability
-
 Prometheus
-
 Grafana
-
 Dynatrace
-
 OpenTelemetry
-
 AI / Data
-
 Python
-
 Scikit-learn
-
 Pandas
-
 NumPy
-
 Current Status
 Implemented
-
 AI Log Analyzer (log classification + root cause hint)
-
 Metric Anomaly Detection (Isolation Forest)
-
 AI Observability Architecture documentation
-
 In Progress
-
 AI Root Cause Analysis improvements
-
 Planned
-
 Predictive capacity planning
-
 AI-assisted incident response
-
 alert correlation
-
 automated remediation
-
 Getting Started
 1. Clone the repository
 git clone https://github.com/tiagomartimiano/sre-ai-lab.git
@@ -169,9 +141,7 @@ Detects recurring failure patterns in logs.
 Capabilities:
 
 classify log errors
-
 detect repeated issues
-
 infer possible root causes
 
 📁 Location:
@@ -184,11 +154,8 @@ Applies machine learning (Isolation Forest) to detect abnormal patterns in telem
 Signals analyzed:
 
 CPU usage
-
 latency
-
 error rate
-
 request volume
 
 📁 Location:
@@ -202,11 +169,8 @@ Correlates incident signals to generate ranked root cause hypotheses.
 Signals considered:
 
 latency spikes
-
 HTTP errors
-
 pod restarts
-
 deployment events
 
 📁 Location:
@@ -217,25 +181,15 @@ Engineering Focus
 This repository explores key SRE questions:
 
 Can AI reduce MTTR?
-
 Can anomaly detection reduce alert fatigue?
-
 Can telemetry correlation improve incident triage?
-
 How far can automation go without removing human control?
-
 Future Experiments
-
 predictive incident detection
-
 topology-aware root cause analysis
-
 automated remediation with guardrails
-
 LLM-assisted incident summaries
-
 AI incident copilots
-
 Contributing
 
 Contributions are welcome.
@@ -243,11 +197,8 @@ Contributions are welcome.
 You can contribute with:
 
 new AI experiments for SRE
-
 anomaly detection improvements
-
 RCA enhancements
-
 documentation improvements
 
 See CONTRIBUTING.md for details.
