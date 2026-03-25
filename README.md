@@ -40,7 +40,7 @@ AI can help SRE teams:
 - correlate signals across systems  
 - accelerate incident investigation  
 - reduce operational noise  
-- improve reliability  ](https://github.com/tiagomartimiano/sre-ai-lab)
+- improve reliability
 
 ---
 
