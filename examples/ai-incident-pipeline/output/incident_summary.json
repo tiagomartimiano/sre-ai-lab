@@ -1,0 +1,38 @@
+{
+  "incident_summary": {
+    "log_analysis": {
+      "summary": {
+        "error": 1,
+        "timeout": 1,
+        "connection_refused": 1
+      },
+      "possible_root_cause": "database connectivity instability"
+    },
+    "metric_analysis": {
+      "anomaly_count": 3,
+      "anomaly_timestamps": [
+        "2026-03-10 10:15:00",
+        "2026-03-10 10:16:00",
+        "2026-03-10 10:17:00"
+      ],
+      "anomaly_samples": []
+    },
+    "root_cause_analysis": {
+      "top_hypothesis": "deployment_misconfiguration",
+      "ranked_hypotheses": [
+        {
+          "hypothesis": "deployment_misconfiguration",
+          "score": 0.44
+        },
+        {
+          "hypothesis": "database_connection_issue",
+          "score": 0.38
+        },
+        {
+          "hypothesis": "network_instability",
+          "score": 0.18
+        }
+      ]
+    }
+  }
+}

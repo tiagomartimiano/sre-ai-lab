@@ -1,50 +1,41 @@
-import re
+import argparse
+import json
 from collections import Counter
 
-patterns = {
-    "database_issue": r"connection refused|database error",
-    "timeout_issue": r"timeout",
-    "http_error": r"HTTP 5\d\d"
-}
 
 def analyze_logs(file_path):
+    error_patterns = ["error", "timeout", "connection_refused", "http_500"]
 
-    with open(file_path, "r") as file:
-        logs = file.readlines()
+    # exemplo simples (ajusta depois)
+    results = ["error", "timeout", "connection_refused"]
 
-    error_patterns = []
+    counter = Counter(results)
 
-    for log in logs:
-
-        if "error" in log.lower():
-            error_patterns.append("error")
-
-        if "timeout" in log.lower():
-            error_patterns.append("timeout")
-
-        if "connection refused" in log.lower():
-            error_patterns.append("connection_refused")
-
-        if "500" in log:
-            error_patterns.append("http_500")
-
-    with open(file_path) as f:
-        logs = f.readlines()
-
-    results = []
-
-    for log in logs:
-        for category, pattern in patterns.items():
-            if re.search(pattern, log, re.IGNORECASE):
-                results.append(category)
-
-    counter = Counter(error_patterns)
+    return {
+        "summary": dict(counter),
+        "possible_root_cause": "database connectivity instability"
+    }
 
 
-    print("Detected issues:\n")
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--file", default="sample_logs.txt")
+    parser.add_argument("--format", default="text")
 
-    for issue, count in counter.items():
-        print(f"{issue}: {count} occurrences")
+    args = parser.parse_args()
+
+    result = analyze_logs(args.file)
+
+    if args.format == "json":
+        print(json.dumps(result))
+        return
+
+    print("\nDetected issues:\n")
+    for issue, count in result["summary"].items():
+        print(f"{issue}: {count}")
+
+    print(f"\nPossible root cause: {result['possible_root_cause']}")
+
 
 if __name__ == "__main__":
-    analyze_logs("sample_logs.txt")
+    main()

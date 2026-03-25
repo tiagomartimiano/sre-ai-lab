@@ -1,3 +1,9 @@
+```markdown
+![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
+![SRE](https://img.shields.io/badge/SRE-AI%20Engineering-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
 # AI for SRE Engineering
 
 This repository explores how **Artificial Intelligence can enhance Site Reliability Engineering (SRE) and DevOps practices**.
@@ -177,6 +183,22 @@ Location:
 
 examples/ai-root-cause-analysis
 Engineering Focus
+
+---
+
+# AI Incident Pipeline
+
+This project includes an **integrated incident analysis pipeline** that combines:
+
+- log analysis  
+- metric anomaly detection  
+- root cause analysis  
+- action recommendation  
+
+## Pipeline Flow
+
+```text
+Metrics → Logs → Correlation → RCA → Recommended Actions
 
 This repository explores key SRE questions:
 
