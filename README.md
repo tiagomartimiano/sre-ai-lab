@@ -144,7 +144,7 @@ classify log errors
 detect repeated issues
 infer possible root causes
 
-📁 Location:
+Location:
 
 labs/ai-log-analyzer
 Metric Anomaly Detection
@@ -158,7 +158,7 @@ latency
 error rate
 request volume
 
-📁 Location:
+Location:
 
 labs/anomaly-detection
 Examples
@@ -173,7 +173,7 @@ HTTP errors
 pod restarts
 deployment events
 
-📁 Location:
+Location:
 
 examples/ai-root-cause-analysis
 Engineering Focus
@@ -211,3 +211,5 @@ Author
 
 Tiago Martimiano
 SRE | DevOps Engineer | Cloud | Kubernetes
+
+::contentReference[oaicite:1]{index=1}
