@@ -1,4 +1,4 @@
-[```markdown
+
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
 ![SRE](https://img.shields.io/badge/SRE-AI%20Engineering-orange?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
