@@ -1,10 +1,9 @@
+# AI for SRE Engineering
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
 ![SRE](https://img.shields.io/badge/SRE-AI%20Engineering-orange?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-# AI for SRE Engineering
 
 This repository explores how **Artificial Intelligence can enhance Site Reliability Engineering (SRE) and DevOps practices**.
 
@@ -21,25 +20,25 @@ The goal is to demonstrate **practical implementations of AI applied to reliabil
 
 Modern distributed systems generate massive volumes of telemetry:
 
-- logs  
-- metrics  
-- traces  
-- alerts  
-- deployment events  
+- logs
+- metrics
+- traces
+- alerts
+- deployment events
 
 Traditional monitoring relies on **static thresholds**, which often results in:
 
-- delayed incident detection  
-- alert fatigue  
-- slow root cause analysis  
-- fragmented visibility  
+- delayed incident detection
+- alert fatigue
+- slow root cause analysis
+- fragmented visibility
 
 AI can help SRE teams:
 
-- detect anomalies earlier  
-- correlate signals across systems  
-- accelerate incident investigation  
-- reduce operational noise  
+- detect anomalies earlier
+- correlate signals across systems
+- accelerate incident investigation
+- reduce operational noise
 - improve reliability
 
 ---
@@ -84,9 +83,14 @@ sre-ai-lab
 │       └── requirements.txt
 │
 ├── examples
-│   └── ai-root-cause-analysis
-│       ├── rca_engine.py
-│       ├── sample_incident.json
+│   ├── ai-root-cause-analysis
+│   │   ├── rca_engine.py
+│   │   ├── sample_incident.json
+│   │   └── README.md
+│   │
+│   └── ai-incident-pipeline
+│       ├── incident_pipeline.py
+│       ├── incident_recommender.py
 │       └── README.md
 │
 ├── diagrams
@@ -112,11 +116,13 @@ Pandas
 NumPy
 Current Status
 Implemented
-AI Log Analyzer (log classification + root cause hint)
-Metric Anomaly Detection (Isolation Forest)
+AI Log Analyzer
+Metric Anomaly Detection
+AI Root Cause Analysis
 AI Observability Architecture documentation
 In Progress
-AI Root Cause Analysis improvements
+Integrated AI Incident Pipeline
+Action recommendation improvements
 Planned
 Predictive capacity planning
 AI-assisted incident response
@@ -139,66 +145,21 @@ python3 detect_anomalies.py
 5. Run Root Cause Analysis Example
 cd examples/ai-root-cause-analysis
 python3 rca_engine.py
-Case Studies
-AI Log Analyzer
+6. Run AI Incident Pipeline
+cd examples/ai-incident-pipeline
+python3 incident_pipeline.py
+python3 incident_recommender.py
+AI Incident Pipeline
 
-Detects recurring failure patterns in logs.
+This project includes an integrated incident analysis pipeline that combines:
 
-Capabilities:
-
-classify log errors
-detect repeated issues
-infer possible root causes
-
-Location:
-
-labs/ai-log-analyzer
-Metric Anomaly Detection
-
-Applies machine learning (Isolation Forest) to detect abnormal patterns in telemetry.
-
-Signals analyzed:
-
-CPU usage
-latency
-error rate
-request volume
-
-Location:
-
-labs/anomaly-detection
-Examples
-AI Root Cause Analysis
-
-Correlates incident signals to generate ranked root cause hypotheses.
-
-Signals considered:
-
-latency spikes
-HTTP errors
-pod restarts
-deployment events
-
-Location:
-
-examples/ai-root-cause-analysis
-Engineering Focus
-
----
-
-# AI Incident Pipeline
-
-This project includes an **integrated incident analysis pipeline** that combines:
-
-- log analysis  
-- metric anomaly detection  
-- root cause analysis  
-- action recommendation  
-
-## Pipeline Flow
-
-```text
+log analysis
+metric anomaly detection
+root cause analysis
+action recommendation
+Pipeline Flow
 Metrics → Logs → Correlation → RCA → Recommended Actions
+Engineering Focus
 
 This repository explores key SRE questions:
 
@@ -206,25 +167,6 @@ Can AI reduce MTTR?
 Can anomaly detection reduce alert fatigue?
 Can telemetry correlation improve incident triage?
 How far can automation go without removing human control?
-Future Experiments
-predictive incident detection
-topology-aware root cause analysis
-automated remediation with guardrails
-LLM-assisted incident summaries
-AI incident copilots
-Contributing
-
-Contributions are welcome.
-
-You can contribute with:
-
-new AI experiments for SRE
-anomaly detection improvements
-RCA enhancements
-documentation improvements
-
-See CONTRIBUTING.md for details.
-
 License
 
 This project is licensed under the MIT License.
@@ -233,5 +175,3 @@ Author
 
 Tiago Martimiano
 SRE | DevOps Engineer | Cloud | Kubernetes
-
-::contentReference[oaicite:1]{index=1}
