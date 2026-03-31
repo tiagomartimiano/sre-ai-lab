@@ -55,10 +55,12 @@ Anomaly Detection / Correlation / RCA
         ↓
 SRE Decision Support
 
+````
 ---
 
 # Project Structure
 
+````
 sre-ai-lab
 │
 ├── docs
@@ -96,6 +98,8 @@ sre-ai-lab
 ├── CONTRIBUTING.md
 ├── requirements.txt
 └── README.md
+
+````
 
 Technologies Used
 Infrastructure
