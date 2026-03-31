@@ -102,68 +102,75 @@ sre-ai-lab
 ````
 
 Technologies Used
+
 Infrastructure
 Kubernetes
 Terraform
 Docker
+
 Observability
 Prometheus
 Grafana
 Dynatrace
 OpenTelemetry
+
 AI / Data
 Python
 Scikit-learn
 Pandas
 NumPy
+
 Current Status
+
 Implemented
 AI Log Analyzer (log classification + pattern detection)
 Metric Anomaly Detection (Isolation Forest)
 Root Cause Analysis (RCA) engine
 AI Observability Architecture documentation
+
 In Progress
 Integrated AI Incident Pipeline
 Action recommendation engine
+
 Planned
 Predictive capacity planning
 AI-assisted incident response workflows
 alert correlation
 automated remediation
+
 Getting Started
-
 1. Clone the repository
-
+````
 git clone https://github.com/tiagomartimiano/sre-ai-lab.git
 cd sre-ai-lab
-
+````
 2. Setup environment
-
+````
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-
+````
 3. Run AI Log Analyzer
-
+````
 cd labs/ai-log-analyzer
 python3 analyzer.py
-
+````
 4. Run Metric Anomaly Detection
-
+````
 cd labs/anomaly-detection
 python3 detect_anomalies.py
-
+````
 5. Run Root Cause Analysis
-
+````
 cd examples/ai-root-cause-analysis
 python3 rca_engine.py
-
+````
 6. Run AI Incident Pipeline
-
+````
 cd examples/ai-incident-pipeline
 python3 incident_pipeline.py
 python3 incident_recommender.py
-
+````
 AI Incident Pipeline
 
 This project includes an integrated incident analysis pipeline that combines:
