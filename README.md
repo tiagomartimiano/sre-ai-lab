@@ -181,11 +181,11 @@ root cause analysis
 action recommendation
 
 Pipeline Flow
-
+````
 Metrics → Logs → Correlation → RCA → Recommended Actions
-
+````
 Example Output
-
+````
 AI Incident Pipeline Result
 
 Log Analysis
@@ -202,7 +202,7 @@ Recommended Actions
 - Inspect database connectivity
 - Review recent deployment
 - Correlate anomaly timestamps with logs
-
+````
 Engineering Focus
 
 This repository explores key SRE questions:
