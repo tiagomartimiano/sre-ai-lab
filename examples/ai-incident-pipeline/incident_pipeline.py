@@ -1,7 +1,33 @@
 import json
 import subprocess
 from pathlib import Path
+from datetime import datetime, timedelta
 
+correlated_logs = correlate(
+    metric_result["anomaly_timestamps"],
+    log_result["classified_logs"]
+)
+
+
+def parse_time(ts):
+    return datetime.strptime(ts, "%Y-%m-%d %H:%M:%S")
+
+
+def correlate(anomaly_timestamps, logs, window_seconds=120):
+    correlated = []
+
+    for ts in anomaly_timestamps:
+        anomaly_time = parse_time(ts)
+
+        for log in logs:
+            log_time = parse_time(log["timestamp"])
+
+            delta = abs((log_time - anomaly_time).total_seconds())
+
+            if delta <= window_seconds:
+                correlated.append(log)
+
+    return correlated
 
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parent.parent
